@@ -22,11 +22,17 @@ watch(() => route.fullPath, (p) => { if (p !== '/') sync(p) })
 
 <template>
   <div class="flex h-full pt-[env(safe-area-inset-top)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-surface focus:p-3 focus:text-fg"
+    >
+      Skip to main content
+    </a>
     <AppSidebar />
     <div class="flex min-w-0 flex-1 flex-col">
       <TopBar />
       <TabStrip />
-      <main class="min-h-0 flex-1 border-t border-line">
+      <main id="main" tabindex="-1" class="min-h-0 flex-1 border-t border-line">
         <NuxtPage />
       </main>
       <BottomNav />
